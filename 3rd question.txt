@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        string input = "hello";
+        foreach (char c in input.Where(c => input.Count(x => x == c) == 1))
+        {
+            Console.Write(c + " ");
+        }
+        
+    }
+}

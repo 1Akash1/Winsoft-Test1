@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        int[] numbers = { 1, 2, 2, 3, 3, 3, 4, 4, 4, 4 };
+
+        var frequencyMap = numbers.GroupBy(x => x)
+                                   .ToDictionary(g => g.Key, g => g.Count());
+
+        foreach (var kvp in frequencyMap)
+        {
+            Console.WriteLine($"Element: {kvp.Key}, Frequency: {kvp.Value}");
+        }
+    }
+}

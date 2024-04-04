@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        string s1 = "abcabcbb";
+        string s2 = "bbbbb";
+        string s3 = "pwwkew";
+
+        Console.WriteLine(LengthOfLongestSubstring(s1)); 
+        Console.WriteLine(LengthOfLongestSubstring(s2)); 
+        Console.WriteLine(LengthOfLongestSubstring(s3)); 
+    }
+
+    public static int LengthOfLongestSubstring(string s)
+    {
+        int maxLength = 0;
+        HashSet<char> set = new HashSet<char>();
+        int i = 0, j = 0;
+
+        while (j < s.Length)
+        {
+            if (!set.Contains(s[j]))
+            {
+                set.Add(s[j++]);
+                maxLength = Math.Max(maxLength, j - i);
+            }
+            else
+            {
+                set.Remove(s[i++]);
+            }
+        }
+
+        return maxLength;
+    }
+}

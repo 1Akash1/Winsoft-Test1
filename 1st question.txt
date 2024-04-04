@@ -1,0 +1,21 @@
+using System;
+using System.Linq;
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        int[] arr = { 10, 8, 15, 12, 6, 20, 1 };
+
+        int[] sortedArr = arr.OrderBy(x => x).ToArray();
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            int rank = Array.IndexOf(sortedArr, arr[i]) + 1;
+            arr[i] = rank;
+        }
+
+        Console.WriteLine(string.Join(", ", arr));
+        Console.ReadLine();
+    }
+}
